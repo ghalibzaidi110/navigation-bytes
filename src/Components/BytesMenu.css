@@ -17,7 +17,7 @@
   .bytes-menu-container p {
     color: #fff;
     font-family: "Akkurat Mono", monospace;
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 300;
     text-transform: uppercase;
   }
@@ -44,8 +44,7 @@
     object-fit: contain;
   }
   
-  .bytes-nav .menu-open,
-  .menu-close {
+  .bytes-nav .menu-toggle {
     cursor: pointer;
     font-size: 16px;
     font-weight: 400;
@@ -113,12 +112,13 @@
   
   .menu-nav {
     position: fixed;
-    top: 0;
+    top: 2%;
     left: 0;
-    padding: 2em;
+    padding: 1.6em 2em;
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    z-index: 1;
   }
   
   .menu-img {

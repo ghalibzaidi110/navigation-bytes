@@ -272,8 +272,8 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
         <div className="logo">
           <img src={logoImage} alt="Bytes Platform Logo" />
         </div>
-        <p className="menu-open" onClick={handleMenuOpen}>
-          Menu
+        <p className="menu-toggle" onClick={isOpen ? handleMenuClose : handleMenuOpen}>
+          {isOpen ? 'Close' : 'Menu'}
         </p>
       </nav>
 
@@ -289,7 +289,7 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
       <div className="menu" ref={menuRef}>
         {/* Menu navigation with close button */}
         <div className="menu-nav">
-          <p className="menu-close" onClick={handleMenuClose}>
+          <p className="menu-toggle" onClick={handleMenuClose}>
             Close
           </p>
         </div>
