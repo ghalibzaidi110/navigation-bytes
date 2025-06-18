@@ -241,7 +241,8 @@
   
     .menu-col.menu-img {
       display: block;
-      position: static;
+      position: relative;
+      flex: 2;
       height: 180px;
       margin: 2rem 0;
       overflow: hidden;
@@ -265,12 +266,16 @@
       height: 100%;
       object-fit: cover;
       opacity: 0.7;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   
     .menu-col.menu-img #img-2,
     .menu-col.menu-img #img-3,
     .menu-col.menu-img #img-4 {
-      display: none;
+      display: flex
     }
     
     .menu-link p {
