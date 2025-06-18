@@ -15,6 +15,7 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false); // Track if screen is mobile/tablet
+  const [buttonText, setButtonText] = useState('Menu'); // Control button text separately
   
   // Refs for DOM elements
   const menuRef = useRef<HTMLDivElement>(null);
@@ -142,6 +143,15 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
       ease: defaultEase,
     });
 
+    // Change button text during animation
+    gsap.to({}, {
+      duration: 0.5,
+      delay: 0.3,
+      onComplete: () => {
+        setButtonText('Close');
+      }
+    });
+
     // Animate menu logo appearance
     gsap.to(".menu-logo img", {
       y: 0,
@@ -216,6 +226,15 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
       ease: defaultEase,
     });
 
+    // Change button text back during animation
+    gsap.to({}, {
+      duration: 0.5,
+      delay: 0.3,
+      onComplete: () => {
+        setButtonText('Menu');
+      }
+    });
+
     // Show hero section
     gsap.to(".hero", {
       top: "0%",
@@ -273,7 +292,7 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
           <img src={logoImage} alt="Bytes Platform Logo" />
         </div>
         <p className="menu-toggle" onClick={isOpen ? handleMenuClose : handleMenuOpen}>
-          {isOpen ? 'Close' : 'Menu'}
+          {buttonText}
         </p>
       </nav>
 
