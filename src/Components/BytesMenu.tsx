@@ -143,6 +143,13 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
       ease: defaultEase,
     });
 
+    // Hide navigation logo
+    gsap.to(".bytes-nav .logo", {
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+
     // Change button text during animation
     gsap.to({}, {
       duration: 0.5,
@@ -151,6 +158,7 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
         setButtonText('Close');
       }
     });
+    
 
     // Animate menu logo appearance
     gsap.to(".menu-logo img", {
@@ -224,6 +232,13 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
       opacity: 0,
       duration: 1.25,
       ease: defaultEase,
+    });
+
+    // Show navigation logo back
+    gsap.to(".bytes-nav .logo", {
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out",
     });
 
     // Change button text back during animation
@@ -300,19 +315,11 @@ const BytesMenu: React.FC<BytesMenuProps> = ({
       <section className="hero" ref={heroRef}>
         <div className="header">
           <h1>Bytes Platform</h1>
-          <sup>&copy;</sup>
         </div>
       </section>
 
       {/* Full-screen menu overlay */}
       <div className="menu" ref={menuRef}>
-        {/* Menu navigation with close button */}
-        <div className="menu-nav">
-          <p className="menu-toggle" onClick={handleMenuClose}>
-            Close
-          </p>
-        </div>
-
         {/* Image container with layered images and 3D tilt effect */}
         <div className="menu-col menu-img" ref={menuImgContainerRef}>
           {/* Main hero image - always visible */}
